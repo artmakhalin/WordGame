@@ -20,11 +20,12 @@ public class WordGuessingGame {
     }
 
     public void play() {
+        System.out.println("The word is: " + wordToGuess);
         Scanner scanner = new Scanner(System.in);
 
         while (attempts > 0) {
             System.out.println("You have " + attempts + " attempts left...");
-            System.out.println("Guess a letter: ");
+            System.out.print("Guess a letter: ");
 
             attempts--;
         }
