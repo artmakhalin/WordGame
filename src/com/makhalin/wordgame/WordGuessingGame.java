@@ -8,6 +8,8 @@ public class WordGuessingGame {
     private String wordToGuess;
     private char[] guessedLetters;
     private int attempts;
+    private static int countWins;
+    private static int countLosses;
 
     public WordGuessingGame(String[] wordList, int maxAttempts) {
         Random rand = new Random();
@@ -35,6 +37,7 @@ public class WordGuessingGame {
                     System.out.println("You have guessed the word! You win!");
                     displayState();
                     userHasWon = true;
+                    countWins++;
                 }
             }
             else {
@@ -45,6 +48,7 @@ public class WordGuessingGame {
 
         if (!userHasWon) {
             System.out.println("You're out of guesses! You lose");
+            countLosses++;
         }
     }
 
@@ -61,5 +65,9 @@ public class WordGuessingGame {
 
     private void displayState() {
         System.out.println("Guessed letters: " + new String(guessedLetters));
+    }
+
+    public void displayResults() {
+        System.out.println("Your results!\nTotal wins: " + countWins + "\nTotal losses: " + countLosses);
     }
 }
